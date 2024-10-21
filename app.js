@@ -14,14 +14,7 @@ button.addEventListener('mouseup', function() {
     hiddenContent.classList.add('hidden');
 });
 
-// Also handle mouse leaving the button area
-button.addEventListener('mouseleave', function() {
-    if (!isHolding) { // Only hide if the button is not being held
-        hiddenContent.classList.add('hidden');
-    }
-});
-
-// Add a listener for when the user releases the mouse outside the button area
+// Remove mouseleave handler, since the `mouseup` on the document will handle it
 document.addEventListener('mouseup', function() {
     if (isHolding) {
         isHolding = false;
